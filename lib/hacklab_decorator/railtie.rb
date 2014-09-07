@@ -12,6 +12,9 @@ module HacklabDecorator
         HacklabDecorator.setup_action_controller self
       end
     end
-  end
 
+    config.after_initialize do |app|
+      app.config.paths.add 'app/decorators', eager_load: true
+    end
+  end
 end
