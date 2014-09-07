@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "hacklab_decorator/version"
 
 Gem::Specification.new do |s|
-  s.name = 'hacklab_decorator_at'
+  s.name = 'hacklab_decorator'
   s.version = HacklabDecorator::VERSION
   s.authors = %w(Andrzej\ Trzaska)
   s.summary = 'Gem created on hacklab.'
