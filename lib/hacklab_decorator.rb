@@ -1,5 +1,6 @@
 require 'hacklab_decorator/version'
 require 'hacklab_decorator/decoratable'
+require 'hacklab_decorator/decorator'
 require 'hacklab_decorator/railtie' if defined?(Rails)
 
 module HacklabDecorator

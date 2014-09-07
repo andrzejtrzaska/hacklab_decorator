@@ -4,6 +4,7 @@ require 'logger'
 require 'support/model_macros'
 
 require 'hacklab_decorator'
+require 'support/decorators'
 
 ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
 ActiveRecord::Base.logger = Logger.new(File.join(File.dirname(__FILE__), "../log/debug.log"))
@@ -25,6 +26,10 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  def protect_class(klass)
+    before { stub_const klass.name, Class.new(klass) }
   end
 end
 
