@@ -10,10 +10,18 @@ describe HacklabDecorator::Decorator do
   context "InstanceMethods" do
 
     subject { HacklabDecorator::Decorator.new(project) }
+
     it "#object" do
       expect(subject.object).to eq project
     end
 
+    it "#h" do
+      view_context = double('view_context')
+      controller = ActionController::Base.new
+      RequestStore.store[:current_controller] = controller
+      expect(controller).to receive(:view_context).and_return(view_context)
+      expect(subject.h).to eq(view_context)
+    end
   end
 
   context "ClassMethods" do
